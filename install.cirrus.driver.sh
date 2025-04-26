@@ -255,12 +255,12 @@ popd > /dev/null
 [[ ! $dkms_action == 'install' ]] && [[ ! -d $update_dir ]] && mkdir $update_dir
 
 if [ $PATCH_CIRRUS = true ]; then
-	make PATCH_CIRRUS=1
-	make install PATCH_CIRRUS=1
+	make LLVM=1 PATCH_CIRRUS=1
+	make LLVM=1 install PATCH_CIRRUS=1
 
 else
-	make KERNELRELEASE=$UNAME
-	make install KERNELRELEASE=$UNAME
+	make LLVM=1 KERNELRELEASE=$UNAME
+	make LLVM=1 install KERNELRELEASE=$UNAME
 
 fi
 
